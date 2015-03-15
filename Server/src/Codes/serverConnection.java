@@ -13,11 +13,14 @@ import java.net.Socket;
  *
  * @author Sadman
  */
-public class serverConnection extends Thread{
+public class serverConnection{
         
-    private String userName, password, path;
-    public void setConnection(String path){
+    private String userName, path;
+    
+    public serverConnection(String path){
         this.path = path;
+    }
+    public void setConnection(){        
         try{
             ServerSocket ss = new ServerSocket(6689);
             dataOutputStreamStorage doss = new dataOutputStreamStorage();
@@ -30,7 +33,7 @@ public class serverConnection extends Thread{
                 String securityData = br.readLine();
                 
                 userName = securityData.substring(0, securityData.indexOf(":")-1);
-                password = securityData.substring(securityData.indexOf(":")+3,securityData.length());                                
+                //password = securityData.substring(securityData.indexOf(":")+3,securityData.length());                                
                       
                 clientCheck clntChk = new clientCheck(securityData, path);
                 boolean valid = clntChk.checkClientInfo();

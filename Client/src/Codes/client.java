@@ -15,10 +15,10 @@ public class client extends Thread{
         this.un = un;
         this.pass = pass;                        
     }
-    
+        
     public void run(){
         clientConnection cc = new clientConnection(un,pass);
         cc.setConnection();
     }
-
+    
 }

@@ -5,6 +5,7 @@
 package GUI;
 
 import Codes.client;
+import Codes.clientConnection;
 
 /**
  *
@@ -88,11 +89,10 @@ public class logInFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInButtonActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:                
         Thread t = new Thread(new client(userNameField.getText(), passwordField.getText()));
         t.start();
-        userNameField.setText(null);
-        passwordField.setText(null);        
+        this.dispose();
     }//GEN-LAST:event_logInButtonActionPerformed
 
     /**

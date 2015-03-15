@@ -92,8 +92,8 @@ public class dataDirectory extends javax.swing.JFrame {
         int response = JOptionPane.showConfirmDialog(null,"Are you sure about the directory?You can not choose the directory again.Press YES to start the server or NO to choose the directory again.",null,JOptionPane.YES_NO_OPTION);
         if(response == 0){
             this.dispose();
-            serverConnection sc = new serverConnection();
-            sc.setConnection(path);
+            serverConnection sc = new serverConnection(path);
+            sc.setConnection();
         }                
         else pathField.setText(null);
     }//GEN-LAST:event_browseButtonActionPerformed

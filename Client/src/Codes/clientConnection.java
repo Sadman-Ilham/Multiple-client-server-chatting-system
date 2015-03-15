@@ -5,6 +5,7 @@
 package Codes;
 
 import GUI.chatFrame;
+import GUI.logInFrame;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -18,6 +19,7 @@ import javax.swing.JOptionPane;
 public class clientConnection {
     
     private String un,pass;
+    
     public clientConnection(String un, String pass){
         this.un = un;
         this.pass = pass;        
@@ -34,8 +36,8 @@ public class clientConnection {
             
             String code = br.readLine();
             if(code.equals("0")){
-                chatFrame cf = new chatFrame(un, dos);                        
-
+                chatFrame cf = new chatFrame(un, dos);
+                
                 while(true){                    
                     String message = br.readLine();
                     cf.receivedMessageArea.append(message + "\n");                    
@@ -43,6 +45,7 @@ public class clientConnection {
             }
             else{
                 JOptionPane.showMessageDialog(null, "INVALID USERNAME OR PASSWORD!!TRY AGAIN");
+                new logInFrame();
             }
         }catch(Exception e){}
     }
